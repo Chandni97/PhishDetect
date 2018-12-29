@@ -1,7 +1,7 @@
 # PhishDetect
 Detecting phishing website using machine learning
 
-Phishing is a type of attack where an attacker tricks the victim to give up sensitive information such as login credentials by disguising as a trustworthy entity. In this application we will try to detect a phishing website using the features that differentiates these domains from the legitimate ones. We will create our own dataset, train and test various machine learning models to detect phishing websites in real time.
+Phishing is a type of attack where an attacker tricks the victim to give up sensitive information such as login credentials by disguising as a trustworthy entity. In this application we will try to detect a phishing website using the features that differentiates these domains from the legitimate ones. We will create our own dataset, train and test various machine learning models using Jupyter Notebooks on IBM Watson studio and deploy the best model to be used by the application for detection.
 
 Various features that are used to create the dataset are as follows : 
 1. Using IP Address - check if URL has an ip address in it
@@ -23,8 +23,16 @@ Various features that are used to create the dataset are as follows :
 1. Age of domain 
 1. web traffic - google rank for page
 1. statistical report - match it with top 10 domains and top 10 IPs from PhishTank
+  
+## Getting started 
+
+1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/)
+1. Login to the [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio)
+1. Install Python3.7
 
 ## Creating Dataset
+
+The dataset created for this application uses around 250 legitimate and 250 phishing urls with 20 features each as mentioned above. You can add more data and features (feature_extraction.py) to the project to create your own dataset as shown below. 
 
 The URLs for phishing websites was retrieved from [here](https://www.phishtank.com/developer_info.php) (verified_online.csv) and
 The URLs for legitimate websites was retrieved from [here](http://s3.amazonaws.com/alexa-static/top-1m.csv.zip) (top1m.csv)
@@ -44,14 +52,46 @@ python create_dataset.py <file_with_legitimate_url> <number_of_urls_to_use> <out
 python create_dataset.py top1m.csv 500 dataset2.csv 0
 ```
 
-## Test different algorithms on Watson Studio
+## Preprocess the data, build machine learning models and test them
 
-1. After the dataset has been created, login it to Watson Studio, create a project and import the notebook available in the repository.
-1. Import the dataset that you have created previously
-1. Use different feature selection methods to check which features are most important. In this notebook we have used random forest feature importance .
-1. Try different machine learning models and compare the results. Our dataset works best with logistic regression. 
-1. Create a logistic regression model on watson studio using the reduced dataset.
-1. Get the access token of the machine learning model and url of the deployment
+### 1. Sign up for Watson Studio
+
+Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com/).
+
+### 2. Create a new Project
+
+> Note: By creating a project in Watson Studio a free tier `Object Storage` service will be created in your IBM Cloud account. Take note of your service names as you will need to select them in the following steps.
+
+* On Watson Studio's Welcome Page select `New Project`.
+
+* Choose the `Data Science` option and click `Create Project`.
+
+* Name your project, select the Cloud Object Storage service instance and click `Create`
+
+
+### 3. Upload the dataset
+
+* Drag and drop the dataset (`csv`) file you just created to Watson Studio's dashboard to upload it to Cloud Object Storage.
+
+### 4. Import notebook to Watson Studio
+
+* Create a **New Notebook**.
+
+* Import the notebook found in this repository
+
+* Give a name to the notebook and select a `Python 3.5` runtime environment, then click `Create`.
+
+
+### 5. Import dataset into the notebook
+
+To make the dataset available in the notebook, we need to refer to where it lives. Watson Studio automatically generates a connection to your Cloud Object Storage instance and gives access to your data.
+
+* Click in the cell below `2. Loading Our Dataset`
+* Then go to the Files section to the right of the notebook and click `Insert to code` for the data you have uploaded. Choose `Insert pandas DataFrame`.
+
+### 6. Follow the steps in the notebook
+
+The steps should allow you to understand the dataset, analyze and visualize it. You will then go through the preprocessing and feature engineering processes to make the data suitable for modeling. Finally, you will build some machine learning models and test them to compare their performances.
 
 
 ## Test a URL
