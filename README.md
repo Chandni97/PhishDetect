@@ -29,6 +29,10 @@ Various features that are used to create the dataset are as follows :
 1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/)
 1. Login to the [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio)
 1. Install Python3.7
+1. Install dependencies
+```
+pip install -r packages.txt
+```
 
 ## Creating Dataset
 
