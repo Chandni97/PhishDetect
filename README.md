@@ -14,7 +14,7 @@ Various features that are used to create the dataset are as follows :
 1. Existance of https token in the domain part of the URL
 1. Request URL - examines  whether  the  external  objects  contained  within  a  webpage are loaded from another domain
 1. URL of Anchor - If the <a> tags and the website have different domain names
-1. Links in tags - It is expected that tags (<Meta>, <Script> and <Link>) are linked to the same domain of the webpage.
+1. Links in tags - It is expected that tags (Meta, Script and Link) are linked to the same domain of the webpage.
 1. Server Form Handler - If it is blank or contains any other domain name
 1. Submitting information to email
 1. Abnormal URL - if domain name (from whois) not in url
