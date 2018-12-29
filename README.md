@@ -86,16 +86,22 @@ Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com/).
 
 To make the dataset available in the notebook, we need to refer to where it lives. Watson Studio automatically generates a connection to your Cloud Object Storage instance and gives access to your data.
 
-* Click in the cell below `2. Loading Our Dataset`
-* Then go to the Files section to the right of the notebook and click `Insert to code` for the data you have uploaded. Choose `Insert pandas DataFrame`.
+* Go to the Files section to the right of the notebook and click `Insert to code` for the data you have uploaded. Choose `Insert pandas DataFrame`.
 
 ### 6. Follow the steps in the notebook
 
 The steps should allow you to understand the dataset, analyze and visualize it. You will then go through the preprocessing and feature engineering processes to make the data suitable for modeling. Finally, you will build some machine learning models and test them to compare their performances.
 
+### 7. Deploy the best model on IBM Cloud
+
+1. Navigate to your project and add a new machine learning model.
+1. Give it a name, choose a machine learning service, select model builder as model type as logistic regression is one of the best model for our dataset and is available in the builder, select the default runtime and select Manual.
+1. Add the reduced dataset to the model.
+1. Add a deployment
+1. Get the deployment url and the machine learning model instance tokens.
+1. Replace the deployment url and tokens in the check_url.py file
 
 ## Test a URL
-
 
 ```
 python check_url.py <url>
